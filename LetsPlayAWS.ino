@@ -80,21 +80,30 @@ String readIMU()
   //Create JSON document
   DynamicJsonDocument doc(300);
 
-  doc["sensor"] = "imu";
-  JsonArray gyro = doc.createNestedArray("gyro");
-  gyro.add(String(gyroX));
-  gyro.add(String(gyroY));
-  gyro.add(String(gyroZ));
+  //doc["sensor"] = "imu";
+  doc["gyroX"] = gyroX;
+  doc["gyroY"] = gyroY;
+  doc["gyroZ"] = gyroZ;
+  //JsonArray gyro = doc.createNestedArray("gyro");
+  //gyro.add(gyroX);
+  //gyro.add(gyroY);
+  //gyro.add(gyroZ);
 
-  JsonArray acc = doc.createNestedArray("acc");
-  acc.add(String(accX));
-  acc.add(String(accY));
-  acc.add(String(accZ));
+  doc["accX"] = accX;
+  doc["accY"] = accY;
+  doc["accZ"] = accZ;
+  //JsonArray acc = doc.createNestedArray("acc");
+  //acc.add(accX);
+  //acc.add(accY);
+  //acc.add(accZ);
 
-  JsonArray ahrs = doc.createNestedArray("ahrs");
-  ahrs.add(String(pitch));
-  ahrs.add(String(roll));
-  ahrs.add(String(yaw));
+  doc["pitch"] = pitch;
+  doc["roll"] = roll;
+  doc["yaw"] = yaw;
+  //JsonArray ahrs = doc.createNestedArray("ahrs");
+  //ahrs.add(pitch);
+  //ahrs.add(roll);
+  //ahrs.add(yaw);
 
   serializeJson(doc, json);
 
