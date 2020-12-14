@@ -81,7 +81,6 @@ String readIMU()
   DynamicJsonDocument doc(300);
 
   doc["sensor"] = "imu";
-  doc["time"] = millis();
   JsonArray gyro = doc.createNestedArray("gyro");
   gyro.add(String(gyroX));
   gyro.add(String(gyroY));
